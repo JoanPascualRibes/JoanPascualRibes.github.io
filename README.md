@@ -1,12 +1,21 @@
 # Personal Webpage
 
-This repository contains the source code for my personal webpage.
+Source for [joanpascualribes.github.io](https://joanpascualribes.github.io).
 
-## Usage
+A single hand-written HTML page with one stylesheet — no framework, no build step, no
+JavaScript. Deployed to GitHub Pages automatically on every push to `main`.
 
-To view the site locally, open `index.html` in your web browser or click this [link](https://joanpascualribes.github.io).
+## Local preview
 
-## Contact
+Open `index.html` directly, or serve the folder:
 
-- Email: [jpascualribes@gmail.com](mailto:jpascualribes@gmail.com)
-- GitHub: [JoanPascualRibes](https://github.com/JoanPascualRibes)
+```
+python3 -m http.server 8000
+```
+
+## Layout
+
+- `index.html` — the page
+- `404.html` — GitHub Pages error page
+- `assets/css/style.css` — all styling
+- `assets/CV.pdf` — downloadable CV linked from the page
