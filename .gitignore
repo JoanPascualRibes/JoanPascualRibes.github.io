@@ -1,0 +1,10 @@
+# Private material lives in ~/CV (separate local repo). Never commit it here — this repo is public.
+cv.tex
+cv.pdf
+website-brief*.md
+photo.*
+*.aux
+*.log
+*.out
+build/
+CLAUDE.md
