@@ -1,27 +1,36 @@
+/*
+ * Joan Pascual Ribes — personal site.
+ *
+ * Direction: the page as a mathematical paper. A centred title block, one text
+ * face (STIX Two Text, the face of maths journals) doing all the talking, and
+ * a small grotesque only for wayfinding (nav, dates, footer). Light mode is
+ * printed paper with hyperref-blue links; dark mode is a blackboard with chalk.
+ */
+
 :root {
-	--bg: #fbfbf9;
-	--bg-raised: #f2f2ee;
-	--text: #1a1a1a;
-	--muted: #5f5f5b;
-	--rule: #dcdcd6;
-	--accent: #a8451f;
+	--bg: #fdfdfb;
+	--bg-raised: #f3f4f1;
+	--text: #101010;
+	--muted: #5b6470;
+	--rule: #d9dcdf;
+	--accent: #1b4fd8;
 	--accent-ink: #ffffff;
-	--display: "Fraunces", "Source Serif 4", Charter, "Iowan Old Style", Georgia, serif;
-	--sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-	--serif: "Source Serif 4", Charter, "Iowan Old Style", Georgia, "Times New Roman", serif;
-	--measure: 44rem;
+	--text-face: "STIX Two Text", "Times New Roman", Times, "Liberation Serif", serif;
+	--ui-face: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	--measure: 42rem;
+	--col: 9rem;
 	color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--bg: #131313;
-		--bg-raised: #1c1c1c;
-		--text: #e9e9e4;
-		--muted: #a3a39c;
-		--rule: #2e2e2c;
-		--accent: #e8a582;
-		--accent-ink: #1f1109;
+		--bg: #1b2421;
+		--bg-raised: #222c28;
+		--text: #ebe8dd;
+		--muted: #a3aaa2;
+		--rule: #34403a;
+		--accent: #efd27c;
+		--accent-ink: #1b2421;
 	}
 }
 
@@ -40,9 +49,9 @@ body {
 	margin: 0;
 	background: var(--bg);
 	color: var(--text);
-	font-family: var(--serif);
+	font-family: var(--text-face);
 	font-size: 1.0625rem;
-	line-height: 1.6;
+	line-height: 1.65;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 }
@@ -57,7 +66,7 @@ a {
 	color: var(--accent);
 	text-decoration: underline;
 	text-decoration-thickness: 1px;
-	text-underline-offset: 0.15em;
+	text-underline-offset: 0.16em;
 }
 
 a:hover { text-decoration-thickness: 2px; }
@@ -75,23 +84,23 @@ a:focus-visible {
 	background: var(--accent);
 	color: var(--accent-ink);
 	padding: 0.5rem 0.75rem;
-	border-radius: 4px;
+	border-radius: 3px;
 	z-index: 10;
 }
 
 .skip:focus { left: 0.5rem; }
 
-/* Header */
+/* Header: the only chrome on the page */
 
 .site-header {
 	position: sticky;
 	top: 0;
 	z-index: 5;
-	background: color-mix(in srgb, var(--bg) 88%, transparent);
+	background: color-mix(in srgb, var(--bg) 90%, transparent);
 	backdrop-filter: blur(8px);
 	-webkit-backdrop-filter: blur(8px);
 	border-bottom: 1px solid var(--rule);
-	font-family: var(--sans);
+	font-family: var(--ui-face);
 	font-size: 0.875rem;
 }
 
@@ -99,7 +108,7 @@ a:focus-visible {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 1rem 1.5rem;
+	gap: 0.5rem 1.5rem;
 	flex-wrap: wrap;
 	min-height: 3.25rem;
 	padding-block: 0.6rem;
@@ -109,7 +118,6 @@ a:focus-visible {
 	font-weight: 600;
 	color: var(--text);
 	text-decoration: none;
-	letter-spacing: -0.01em;
 }
 
 .site-header nav {
@@ -125,45 +133,33 @@ a:focus-visible {
 
 .site-header nav a:hover { color: var(--text); }
 
-/* Hero */
+/* Title block */
 
 .hero {
-	padding-block: 4.5rem 3rem;
-	border-bottom: 1px solid var(--rule);
-}
-
-.hello {
-	font-family: var(--sans);
-	font-size: 0.9375rem;
-	color: var(--muted);
-	margin: 0 0 0.35rem;
+	text-align: center;
+	padding-block: 5rem 3.5rem;
 }
 
 h1 {
-	font-family: var(--display);
-	font-variation-settings: "opsz" 144, "SOFT" 40;
-	font-weight: 500;
-	font-size: clamp(2.25rem, 6vw, 3.25rem);
-	letter-spacing: -0.015em;
-	line-height: 1.05;
-	margin: 0 0 1.25rem;
+	font-weight: 400;
+	font-size: clamp(2.75rem, 8vw, 4.5rem);
+	letter-spacing: -0.02em;
+	line-height: 1;
+	margin: 0 0 1.5rem;
 }
 
 .lead {
-	font-size: 1.3125rem;
+	font-size: 1.25rem;
 	line-height: 1.5;
-	max-width: 38rem;
-	margin: 0 0 1.75rem;
+	max-width: 34rem;
+	margin: 0 auto 2rem;
+	text-wrap: pretty;
 }
 
-/* Keywords in the lead: set in the display face, italic — emphasis by contrast of type, not colour */
+/* Keywords in the lead: same face, italic — the way a paper stresses a term */
 .lead strong {
-	font-family: var(--display);
+	font-weight: 400;
 	font-style: italic;
-	font-weight: 500;
-	font-size: 1.06em;
-	font-variation-settings: "opsz" 40;
-	color: var(--text);
 }
 
 .links {
@@ -174,9 +170,11 @@ h1 {
 	flex-wrap: wrap;
 	align-items: center;
 	gap: 0.75rem 1.5rem;
-	font-family: var(--sans);
+	font-family: var(--ui-face);
 	font-size: 0.9375rem;
 }
+
+.hero .links { justify-content: center; }
 
 .button {
 	display: inline-block;
@@ -184,38 +182,31 @@ h1 {
 	color: var(--accent-ink);
 	text-decoration: none;
 	padding: 0.55rem 1rem;
-	border-radius: 6px;
+	border-radius: 3px;
 	font-weight: 500;
 }
 
-.button:hover { text-decoration: none; filter: brightness(1.1); }
+.button:hover { text-decoration: none; filter: brightness(1.08); }
 .button .muted { color: inherit; opacity: 0.75; }
 
-/* Sections */
+/* Sections: whitespace, not rules */
 
-section {
-	padding-block: 2.75rem;
-	border-bottom: 1px solid var(--rule);
-}
+section { padding-block: 2.5rem; }
 
-section:last-of-type { border-bottom: 0; }
+.hero + section { padding-top: 1.5rem; }
 
 h2 {
-	font-family: var(--sans);
-	font-weight: 600;
-	font-size: 0.8125rem;
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-	color: var(--muted);
+	font-weight: 700;
+	font-size: 1.5rem;
+	letter-spacing: -0.01em;
+	line-height: 1.2;
 	margin: 0 0 1.5rem;
 }
 
 h3 {
-	font-family: var(--sans);
-	font-weight: 600;
-	font-size: 1.0625rem;
-	letter-spacing: -0.01em;
-	line-height: 1.35;
+	font-weight: 700;
+	font-size: 1.125rem;
+	line-height: 1.3;
 	margin: 0 0 0.15rem;
 }
 
@@ -224,18 +215,18 @@ p:last-child { margin-bottom: 0; }
 
 .muted { color: var(--muted); font-weight: 400; }
 
+/* Affiliation line, set like the author line of a paper */
 .where {
-	font-family: var(--sans);
-	font-size: 0.875rem;
+	font-style: italic;
 	color: var(--muted);
-	margin-bottom: 0.6rem;
+	margin-bottom: 0.5rem;
 }
 
 /* Entries: date column + content */
 
 .entry {
 	display: grid;
-	grid-template-columns: 9.5rem 1fr;
+	grid-template-columns: var(--col) 1fr;
 	gap: 0.25rem 1.5rem;
 	margin-bottom: 2rem;
 }
@@ -243,11 +234,11 @@ p:last-child { margin-bottom: 0; }
 .entry:last-child { margin-bottom: 0; }
 
 .when {
-	font-family: var(--sans);
+	font-family: var(--ui-face);
 	font-size: 0.8125rem;
 	color: var(--muted);
 	line-height: 1.5;
-	padding-top: 0.25rem;
+	padding-top: 0.35rem;
 }
 
 .when span { display: block; }
@@ -266,8 +257,6 @@ details {
 
 summary {
 	cursor: pointer;
-	font-family: var(--sans);
-	font-size: 0.875rem;
 	color: var(--accent);
 }
 
@@ -285,16 +274,13 @@ dl {
 
 dl > div {
 	display: grid;
-	grid-template-columns: 9.5rem 1fr;
+	grid-template-columns: var(--col) 1fr;
 	gap: 0.25rem 1.5rem;
 }
 
 dt {
-	font-family: var(--sans);
-	font-weight: 600;
-	font-size: 0.9375rem;
+	font-weight: 700;
 	line-height: 1.5;
-	padding-top: 0.1rem;
 }
 
 dd { margin: 0; }
@@ -313,8 +299,9 @@ dd ul.plain li { margin-bottom: 0.2rem; }
 
 .site-footer {
 	border-top: 1px solid var(--rule);
+	margin-top: 1.5rem;
 	padding-block: 1.75rem 2.5rem;
-	font-family: var(--sans);
+	font-family: var(--ui-face);
 	font-size: 0.8125rem;
 	color: var(--muted);
 }
@@ -331,9 +318,6 @@ dd ul.plain li { margin-bottom: 0.2rem; }
 	}
 
 	.when { padding-top: 0; }
-	.when span { display: inline; }
-	.when span + span::before { content: " · "; }
 
-	.hero { padding-block: 3rem 2.25rem; }
-	section { padding-block: 2.25rem; }
+	.hero { padding-block: 3.5rem 2.5rem; }
 }
