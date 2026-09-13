@@ -62,6 +62,13 @@ a {
 
 a:hover { text-decoration-thickness: 2px; }
 
+/* Quiet reference links inside prose (institutions, people, tools) */
+a.ref {
+	color: inherit;
+	text-decoration-color: var(--rule);
+}
+a.ref:hover { color: var(--accent); text-decoration-color: currentColor; }
+
 a:focus-visible {
 	outline: 2px solid var(--accent);
 	outline-offset: 3px;
