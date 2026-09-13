@@ -146,28 +146,7 @@ h1 {
 	font-size: clamp(2.25rem, 6vw, 3.25rem);
 	letter-spacing: -0.015em;
 	line-height: 1.05;
-	margin: 0 0 1rem;
-}
-
-.tags {
-	list-style: none;
-	margin: 0 0 1.5rem;
-	padding: 0;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.5rem;
-	font-family: var(--sans);
-	font-size: 0.8125rem;
-	font-weight: 500;
-	letter-spacing: 0.01em;
-}
-
-.tags li {
-	padding: 0.3rem 0.7rem;
-	border: 1px solid var(--rule);
-	border-radius: 999px;
-	background: var(--bg-raised);
-	color: var(--text);
+	margin: 0 0 1.25rem;
 }
 
 .lead {
@@ -177,10 +156,14 @@ h1 {
 	margin: 0 0 1.75rem;
 }
 
+/* Keywords in the lead: set in the display face, italic — emphasis by contrast of type, not colour */
 .lead strong {
-	font-weight: 600;
+	font-family: var(--display);
+	font-style: italic;
+	font-weight: 500;
+	font-size: 1.06em;
+	font-variation-settings: "opsz" 40;
 	color: var(--text);
-	background: linear-gradient(transparent 62%, color-mix(in srgb, var(--accent) 24%, transparent) 62%);
 }
 
 .links {
