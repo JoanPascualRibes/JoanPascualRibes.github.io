@@ -150,10 +150,20 @@ h1 {
 }
 
 .lead {
-	font-size: 1.25rem;
+	font-size: 1.3125rem;
 	line-height: 1.5;
-	max-width: 36rem;
+	max-width: 38rem;
 	margin: 0 0 1.75rem;
+}
+
+/* Keywords in the lead: set in the display face, italic — emphasis by contrast of type, not colour */
+.lead strong {
+	font-family: var(--display);
+	font-style: italic;
+	font-weight: 500;
+	font-size: 1.06em;
+	font-variation-settings: "opsz" 40;
+	color: var(--text);
 }
 
 .links {

@@ -2,10 +2,10 @@
 
 Open items for the site. Nothing here goes on the page until the owner confirms it.
 
-## Before merging `redesign` into `main`
+## Done (merged to `main` 2026-09-12)
 
 - [x] `assets/CV.pdf` is now refreshed automatically by `~/CV/build.sh` on every compile.
-- [ ] Eyeball the page in a browser (light and dark mode, phone width) — no screenshot tooling on this machine, so this is a manual check.
+- [x] Eyeballed by the owner before the merge.
 - [x] Decided: `cv.tex` and the brief live in the private local repo `~/CV` and are gitignored here.
 
 ## Content pending owner confirmation (from the brief's "Open items")
